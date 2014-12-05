@@ -1,4 +1,4 @@
-## plot3.R
+## plot4.R
 
 ## I need to do this to get english daynames as I am on FInnish system
 Sys.setlocale("LC_ALL", 'C')
@@ -23,13 +23,13 @@ png(filename ="plot4.png", width = 480, height = 480,bg = "white")
 par(mfrow=c(2,2))
 
 ##1
-plot( data$Global_active_power, type="l", xaxt="n", ylab="Global active power (kilowatts)", xlab="" )
+plot( data$Global_active_power, type="l", xaxt="n", ylab="Global active power", xlab="" )
 n <- nrow(data)
 ix <- c(1, n/2+1, n)
 axis(side = 1, at = ix, labels = weekdays(data$Date[ix], abbreviate=TRUE), tcl = -0.7, cex.axis = 0.7 )
 
 ##2
-plot( data$Voltage, type="l", xaxt="n", ylab="Voltage", xlab="" )
+plot( data$Voltage, type="l", xaxt="n", ylab="Voltage", xlab="datetime" )
 n <- nrow(data)
 ix <- c(1, n/2+1, n)
 axis(side = 1, at = ix, labels = weekdays(data$Date[ix], abbreviate=TRUE), tcl = -0.7, cex.axis = 0.7 )
@@ -39,13 +39,13 @@ axis(side = 1, at = ix, labels = weekdays(data$Date[ix], abbreviate=TRUE), tcl =
 plot( data$Sub_metering_1, type="l", xaxt="n", ylab="Energy sub metering", xlab="" )
 lines(data$Sub_metering_2, type='l', col="red")
 lines(data$Sub_metering_3, type='l', col="blue" )
-legend(x="topright", lty=1, col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend(x="topright",bty="n", lty=1, col=c("black", "red", "blue"), legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 n <- nrow(data)
 ix <- c(1, n/2+1, n)
 axis(side = 1, at = ix, labels = weekdays(data$Date[ix], abbreviate=TRUE), tcl = -0.7, cex.axis = 0.7 )
 
-##2
-plot( data$Global_reactive_power, type="l", xaxt="n", ylab="GLobal_reactive_power", xlab="" )
+##4
+plot( data$Global_reactive_power, type="l", xaxt="n", ylab="Global_reactive_power", xlab="datetime" )
 n <- nrow(data)
 ix <- c(1, n/2+1, n)
 axis(side = 1, at = ix, labels = weekdays(data$Date[ix], abbreviate=TRUE), tcl = -0.7, cex.axis = 0.7 )
